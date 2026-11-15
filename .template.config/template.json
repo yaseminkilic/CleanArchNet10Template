@@ -1,0 +1,43 @@
+{
+  "$schema": "http://schemastore.org",
+  "author": "Custom Team",
+  "classifications": [ "Web", "API", "Clean Architecture", "MSSQL" ],
+  "identity": "Custom.Net10.CleanArchitecture.MSSQL",
+  "name": ".NET 10 Clean Architecture (MSSQL)",
+  "shortName": "clean-net10",
+  "sourceName": "CleanArchTemplate",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            ".git/**",
+            ".vs/**",
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**"
+          ]
+        }
+      ]
+    }
+  ],
+  "symbols": {
+    "DbServer": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "(localdb)\\mssqllocaldb",
+      "replaces": "(localdb)\\mssqllocaldb",
+      "description": "MSSQL sunucu adresi (Örn: localhost veya .\\SQLEXPRESS)"
+    },
+    "UseScalar": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "true",
+      "description": "Scalar OpenAPI arayüzünü projeye dahil et"
+    }
+  }
+}
