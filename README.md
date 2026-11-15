@@ -99,3 +99,16 @@ dotnet run --project src/<ProjectName>.WebApi
 ```
 
 If `UseScalar` is enabled, navigate to `https://localhost:<PORT>/scalar/v1` in your browser during development to explore and test your API endpoints.
+
+
+```bash
+dotnet new clean-net10 -n StokYonetim --DbServer "localhost"
+cd StokYonetim
+
+# Veritabanındaki tüm tabloları çekmek için:
+.\scaffold-db.ps1 -Server "localhost" -Database "MevcutVeritabaniAdi"
+
+# Veya sadece istediğiniz tabloları çekmek için:
+.\scaffold-db.ps1 -Server "localhost" -Database "MevcutVeritabaniAdi" -Tables "Urunler,Kategoriler"
+
+```

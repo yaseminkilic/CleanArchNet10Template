@@ -2,9 +2,17 @@ using CleanArchTemplate.Application.Common.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchTemplate.Infrastructure.Persistence;
-
-public class ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
-    : DbContext(options), IApplicationDbContext
+public partial class ApplicationDbContext : DbContext
 {
-    // DbSet<Entity> tanımlarınız buraya gelecek
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        OnModelCreatingPartial(modelBuilder);
+    }
+
+    partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
